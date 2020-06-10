@@ -1,3 +1,4 @@
+
 $(window).on('load', function() {
 
     $('.level-bar-inner').each(function() {
@@ -63,9 +64,10 @@ jQuery(document).ready(function($) {
     );
     
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    new GitHubCalendar("#github-graph", "IonicaBizau");
-    
-    
+    //new GitHubCalendar("#github-graph", "frickmh");
+    //GitHubCalendar("#github-graph", "frickmh", { responsive: true });
+	GitHubCalendar("#github-graph", "frickmh", { responsive: true });    
+	
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
     GitHubActivity.feed({ username: "mdo", selector: "#ghfeed" });
 
