@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><u>Setting an Alarm</u></b> – System startup</p>
+
+<p class=MsoNormal>1.) SYSTEM – Device Startup.</p>
+
+<p class=MsoNormal>2.) BOOT_COMPLETED implicit intent notifies the app.</p>
+
+<p class=MsoNormal>3.) Woodland Alarm reads its stored database to find the
+desired time for the next alarm.</p>
+
+<p class=MsoNormal>4.) The next alarm is stored in a AlarmModel object for
+later use by the app.</p>
+
+<p class=MsoNormal>5.) A PendingIntent is posted to the system’s AlarmManager
+service at the given time for the alarm.</p>
+
+<p class=MsoNormal>6.) The next alarm is displayed to the user in
+human-readable format.</p>
+
+<p class=MsoNormal>7.) A notification is created to keep Woodland Alarm’s alarm
+service in the foreground.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><u>Setting an Alarm</u></b> – User saves an alarm</p>
+
+<p class=MsoNormal>1.) The user clicks on the app icon, sending the app an
+explicit LAUNCHER event.</p>
+
+<p class=MsoNormal>2.) The application starts with the main Alarm List screen
+as the entry point.</p>
+
+<p class=MsoNormal>3.) The user creates a new alarm, starting the Alarm Details
+activity, where they will set the time.</p>
+
+<p class=MsoNormal>4.) The user saves the alarm.  The contents of the screen
+are saved to an AlarmModel object.</p>
+
+<p class=MsoNormal>5.) The AlarmModel’s contents are saved to a local database.</p>
+
+<p class=MsoNormal>6.) A PendingIntent is generated from the AlarmModel’s contents.</p>
+
+<p class=MsoNormal>7.) A service is started which keeps the app running in the
+background.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><u>Triggering an Alarm</u></b> – The alarm goes off at
+the time it was set for.</p>
+
+<p class=MsoNormal>1.) Android’s AlarmManager sees a PendingIntent from
+Woodland Alarm to create a foreground service.</p>
+
+<p class=MsoNormal>2.) A notification is bound to the foreground service to
+allow the app to wake the phone if it is off.</p>
+
+<p class=MsoNormal>3.) The foreground service for my app starts an activity
+that displays the alarm screen UI.</p>
+
+<p class=MsoNormal>4.) The PendingIntent’s Extra Data is used to create an
+AlarmModel, which contains media URLs for pictures and sounds, as well as text
+data for the alarm screen’s UI components.</p>
+
+<p class=MsoNormal>5.) The alarm screen plays a MediaPlayer sound from the
+application layer.</p>
+
+<p class=MsoNormal>6.) The foreground service looks in the database to check if
+there is another upcoming alarm.</p>
+
+<p class=MsoNormal>7.) If present, the foreground service will update the
+database and send a new PendingIntent to the AlarmManager.</p>
+
+</div>
+
+</body>
+
+</html>
